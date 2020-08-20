@@ -749,11 +749,6 @@ body.lock {
   padding: 70px 0;
 }
 
-.quiz__btn {
-  width: 100%;
-  text-align: center;
-}
-
 .item-quiz {
   display: none;
   text-align: right;
@@ -1267,6 +1262,11 @@ body.lock {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 94%;
             flex: 0 0 94%;
+  }
+
+  .quiz__btn {
+    width: 100%;
+    text-align: center;
   }
 
   .item-quiz__option {
