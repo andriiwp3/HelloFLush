@@ -960,6 +960,10 @@ body.lock {
   background-size: contain;
 }
 
+.reply.err {
+  background-image: none !important;
+}
+
 .reply__title {
   margin: 0px auto 30px auto;
 }

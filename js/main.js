@@ -366,7 +366,7 @@ $('form button[type=submit]').click(function (e) {
 			})
 		}
 		var jqxhr = $.post(
-			"/https://my-json-server.typicode.com/andriiwp3/json-placeholder-server/posts",
+			"https://my-json-server.typicode.com/andriiwp3/json-placeholder-server/posts",
 			{
 				email: arr.email,
 				phone: arr.phone,
