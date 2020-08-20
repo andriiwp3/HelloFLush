@@ -495,14 +495,6 @@ body.lock {
   margin: 0 auto 80px auto;
 }
 
-.benefits__media-img {
-  display: none;
-}
-
-.benefits__media-img img {
-  max-width: 100%;
-}
-
 .no-webp .benefits__body{
   background-image: url(../img/benefits/bg.png); }
 
@@ -1116,21 +1108,13 @@ body.lock {
     margin: 0px 12px 0px 0px;
   }
 
-  .benefits__media-img {
-    display: block;
-    text-align: center;
-    margin: 0px 0px 30px 0px;
-  }
-
-  .benefits__media-img img {
-    border-radius: 10px;
-  }
-
-  .no-webp .benefits__body{
-    background-image: url(../img/benefits/bg-happy.png); }
-
   .benefits__body {
+    background-image: none !important;
     background-size: contain;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 
   .benefits__block {
@@ -1138,10 +1122,11 @@ body.lock {
   }
 
   .benefits__block_left {
-    display: none;
+    margin: 0px 0px 50px 0px;
   }
 
   .benefits__list {
+    position: absolute;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1169,6 +1154,20 @@ body.lock {
     -webkit-box-ordinal-group: 0;
         -ms-flex-order: -1;
             order: -1;
+  }
+
+  .benefits__img {
+    position: relative;
+    width: 350px;
+    opacity: 1;
+    visibility: visible;
+    margin: 0 auto;
+    transform: translate3d(0px, 20px, 0px);
+    -webkit-transform: translate3d(0px, 20px, 0px);
+    -ms-transform: translate3d(0px, 20px, 0px);
+    -o-transform: translate3d(0px, 20px, 0px);
+    -moz-transform: translate3d(0px, 20px, 0px);
+    z-index: -1;
   }
 
   .ai-benefits__cards {
@@ -1263,12 +1262,6 @@ body.lock {
     font-size: 12px;
   }
 
-  .benefits__item_4 {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 94%;
-            flex: 0 0 94%;
-  }
-
   .quiz__btn {
     width: 100%;
   }
@@ -1311,8 +1304,3 @@ body.lock {
 .webp .feedback{ background-image: url(../img/feedback/bg.webp); }
 
 .webp .reply{ background-image: url(../img/feedback/confetti.webp); }
-
-@media (max-width: 767.98px){
-
-  .webp .benefits__body{ background-image: url(../img/benefits/bg-happy.webp); }
-}
