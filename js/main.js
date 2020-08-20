@@ -316,7 +316,7 @@ $('form button[type=submit]').click(function (e) {
 	var er = 0;
 	var form = $(this).parents('form');
 	var quizAnswers = [];
-	var answers ="";
+	var answers = "";
 	$.each(form.find('.req'), function (index, val) {
 		er += formValidate($(this));
 	});
@@ -346,29 +346,6 @@ $('form button[type=submit]').click(function (e) {
 				section.find('.feedback__reply').css('transform', 'scale(1)');
 			}, 300);
 		}
-		/* 		$.ajax({
-					type: "POST",
-					url: "https://my-json-server.typicode.com/andriiwp3/test/posts",
-					data: form.serialize()
-				}).done(function () {
-					console.log('yeahhh');
-					form.css('transform', 'scale(0)');
-					form.delay('300').hide();
-					$('.feedback__succes').show();
-					$('.feedback__succes').delay('300').css('transform', 'scale(1)');
-				}).fail(function () {
-					console.log('fail');
-				}); 
-		/* 		this.closest('form').querySelectorAll('input').forEach(function (item) {
-					if (item.value !== null && item.value !== '' && item.value !== 'on')
-						if (item.classList.contains('form__input_email')) {
-							arr.email = item.value;
-						} else if (item.classList.contains('form__input_tel')) {
-							if (item.inputmask("isComplete")) {
-								arr.phone = item.value;
-							}
-						}
-				}); */
 		form.find('input').each(function () {
 			var th = $(this);
 			if (th.val() !== '') {
@@ -384,23 +361,22 @@ $('form button[type=submit]').click(function (e) {
 			}
 		})
 		if (quizAnswers.length > 0) {
-			quizAnswers.forEach(function(item) {
+			quizAnswers.forEach(function (item) {
 				answers += `${item}, `
 			})
 		}
-		fetch('https://my-json-server.typicode.com/andriiwp3/json-placeholder-server/posts', {
-			method: 'POST',
-			body: JSON.stringify({
+		var jqxhr = $.post(
+			"/https://my-json-server.typicode.com/andriiwp3/json-placeholder-server/posts",
+			{
 				email: arr.email,
 				phone: arr.phone,
-				quizAnswers: answers
-			}),
-			headers: {
-				"Content-type": "application/json; charset=UTF-8"
+				answers: answers
 			}
-		})
-			.then((response) => showStatus(response, form, form.closest('section')))
-			.catch((response) => showStatus(response, form, form.closest('section')));
+
+		).done(function () { showStatus('success', form, form.closest('section')); })
+			.fail(function () { showStatus('error', form, form.closest('section')); })
+			.always(function (jsonData) { });
+
 	} else {
 		return false;
 	}

@@ -647,6 +647,9 @@ body.lock {
           flex: 0 0 32%;
 }
 
+.no-webp .card-ai{
+  background-image: url(../img/rays.png); }
+
 .card-ai {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1258,6 +1261,8 @@ body.lock {
 .webp .hero{ background-image: url(../img/hero/hero-bg.webp); }
 
 .webp .benefits__body{ background-image: url(../img/benefits/bg.webp); }
+
+.webp .card-ai{ background-image: url(../img/rays.webp); }
 
 .webp .card-ai__img{ background-image: url(../img/stars.webp); }
 
