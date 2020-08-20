@@ -207,16 +207,31 @@ window.addEventListener('scroll', function (e) {
 	header.classList.remove('scrolled');
 });
 
-$('.nxt').each(function() {
+$('.nxt').each(function () {
 	var th = $(this);
-	th.click(function(e) {
+	th.click(function (e) {
 		e.preventDefault();
-		var items =  th.closest('section').find('.quiz__items');
+		var items = th.closest('section').find('.quiz__items');
 		var activeItem = items.find('.item-quiz.active');
 		var nextItem = activeItem.next();
+		var checkbox = activeItem.find('.item-quiz__check');
+		var checked = 0;
 
-		activeItem.hide('300');
-		nextItem.show('300');
+		checkbox.each(function () {
+			if ($(this).is(':checked')) {
+				checked++;
+			}
+		})
+
+		if (checked && checked != 0) {
+			activeItem.hide('300');
+			nextItem.show('300');
+		} else {
+			th.css('background-color', '#fd2a55');
+			setTimeout(function() {
+				th.css('background-color', '#23b565');
+			}, 1000);
+		}
 	})
 })
 		/*!
@@ -300,9 +315,18 @@ function digi(str) {
 $('form button[type=submit]').click(function (e) {
 	var er = 0;
 	var form = $(this).parents('form');
+	var quizAnswers = [];
+	var answers ="";
 	$.each(form.find('.req'), function (index, val) {
 		er += formValidate($(this));
 	});
+	if (form.closest('.quiz__item').prev()) {
+		form.closest('.quiz__item').prev().find('.item-quiz__check').each(function () {
+			if ($(this).is(':checked')) {
+				quizAnswers.push(($(this).next().text()));
+			}
+		})
+	}
 	if (er == 0) {
 		removeFormError(form);
 		e.preventDefault()
@@ -359,11 +383,17 @@ $('form button[type=submit]').click(function (e) {
 				}
 			}
 		})
+		if (quizAnswers.length > 0) {
+			quizAnswers.forEach(function(item) {
+				answers += `${item}, `
+			})
+		}
 		fetch('https://my-json-server.typicode.com/andriiwp3/json-placeholder-server/posts', {
 			method: 'POST',
 			body: JSON.stringify({
 				email: arr.email,
-				phone: arr.phone
+				phone: arr.phone,
+				quizAnswers: answers
 			}),
 			headers: {
 				"Content-type": "application/json; charset=UTF-8"
