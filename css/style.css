@@ -495,6 +495,14 @@ body.lock {
   margin: 0 auto 80px auto;
 }
 
+.benefits__media-img {
+  display: none;
+}
+
+.benefits__media-img img {
+  max-width: 100%;
+}
+
 .no-webp .benefits__body{
   background-image: url(../img/benefits/bg.png); }
 
@@ -614,7 +622,7 @@ body.lock {
 }
 
 .ai-benefits {
-  padding: 80px 0px 80px 0px;
+  padding: 0px 0px 80px 0px;
 }
 
 .ai-benefits__title {
@@ -732,13 +740,18 @@ body.lock {
 }
 
 .no-webp .quiz{
-  background-image: url(../img/test-drive/bg.png); }
+  background-image: url(../img/feedback/bg.png); }
 
 .quiz {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   padding: 70px 0;
+}
+
+.quiz__btn {
+  width: 100%;
+  text-align: center;
 }
 
 .item-quiz {
@@ -789,6 +802,7 @@ body.lock {
   border-radius: 8px;
   padding: 15px 20px;
   margin: 0px 0px 15px 0px;
+  cursor: pointer;
 }
 
 .item-quiz__option span {
@@ -1102,6 +1116,16 @@ body.lock {
     margin: 0px 12px 0px 0px;
   }
 
+  .benefits__media-img {
+    display: block;
+    text-align: center;
+    margin: 0px 0px 30px 0px;
+  }
+
+  .benefits__media-img img {
+    border-radius: 10px;
+  }
+
   .no-webp .benefits__body{
     background-image: url(../img/benefits/bg-happy.png); }
 
@@ -1245,6 +1269,12 @@ body.lock {
             flex: 0 0 94%;
   }
 
+  .item-quiz__option {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+
   .feedback__reply {
     padding: 45px 25px;
   }
@@ -1272,7 +1302,7 @@ body.lock {
 
 .webp .test-drive{ background-image: url(../img/test-drive/bg.webp); }
 
-.webp .quiz{ background-image: url(../img/test-drive/bg.webp); }
+.webp .quiz{ background-image: url(../img/feedback/bg.webp); }
 
 .webp .feedback{ background-image: url(../img/feedback/bg.webp); }
 

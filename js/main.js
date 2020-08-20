@@ -234,6 +234,18 @@ $('.nxt').each(function () {
 		}
 	})
 })
+
+$('.item-quiz__option').each(function() {
+	var th = $(this);
+	th.click(function (e) {
+		var checkbox = th.find('.item-quiz__check');
+		if (checkbox.is(':checked')) {
+			$(checkbox).prop( "checked", false );
+		} else {
+			$(checkbox).prop( "checked", true );
+		}
+	})
+})
 		/*!
 * jquery.inputmask.bundle.js
 * https://github.com/RobinHerbots/jquery.inputmask
