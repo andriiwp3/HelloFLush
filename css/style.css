@@ -452,7 +452,7 @@ body.lock {
 }
 
 .scroll-down {
-  position: relative;
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -460,6 +460,13 @@ body.lock {
       -ms-flex-pack: center;
           justify-content: center;
   height: 123px;
+  left: 50%;
+  bottom: 0;
+  transform: translate3d(-50%, 0px, 0px);
+  -webkit-transform: translate3d(-50%, 0px, 0px);
+  -ms-transform: translate3d(-50%, 0px, 0px);
+  -o-transform: translate3d(-50%, 0px, 0px);
+  -moz-transform: translate3d(-50%, 0px, 0px);
 }
 
 .scroll-down:after {
